@@ -1,0 +1,24 @@
+{% load static %}
+<section id="courses" class="courses section">
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+        <h2>Курси</h2>
+        <p>Популярні курси</p>
+    </div><!-- End Section Title -->
+    <div class="container">
+        <div class="row">
+            {% for course in courses %}
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="course-item">
+
+                        <img src="{{ course.photo.url }}" class="img-fluid" alt="">
+                        <div class="course-content">
+                            <h3><a href="course-details.html">{{ course }}</a></h3>
+                            <p class="description">{{ course.desc }}</p>
+                        </div>
+                    </div>
+                </div> <!-- End Course Item-->
+            {% endfor %}
+        </div>
+    </div>
+</section><!-- /Courses Section -->
