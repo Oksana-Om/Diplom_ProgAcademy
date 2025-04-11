@@ -1,33 +1,13 @@
 from django.db import models
+from ckeditor.fields import RichTextField
 
-# class Category(models.Model):
-#
-#     name = models.CharField(max_length=50, unique=True)
-#     slug = models.SlugField(blank=True)
-#     is_visible = models.BooleanField(default=True)
-#     sort = models.IntegerField(default=0)
-#
-#     class Meta:
-#         db_table = 'main_categories'
-#         ordering = ('sort', 'name')
-#         verbose_name = 'Категорія курсів'
-#         verbose_name_plural = 'categories'
-#
-#     def __str__(self):
-#         return self.name
-#
-#     def __iter__(self):
-#         for course in self.courses.all():
-#             yield course
 
 class Course(models.Model):
 
     name = models.CharField(max_length=50, unique=True)
     price = models.DecimalField(max_digits=7, decimal_places=2)
     desc = models.TextField(max_length=255, unique=True)
-   # photo = models.ImageField(upload_to='dishes/')
     photo = models.ImageField(upload_to='courses/')
-    # category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='courses')
 
     is_visible = models.BooleanField(default=True)
     sort = models.IntegerField(default=0)
@@ -93,4 +73,24 @@ class Company(models.Model):
         return self.name
     class Meta:
         db_table = 'companies'
+
+class Contact(models.Model):
+    address = RichTextField()
+    reservation = RichTextField()
+    opening_hours = RichTextField()
+
+class Reservations(models.Model):
+    name = models.CharField(max_length=50)
+    email = models.EmailField()
+    phone = models.CharField(max_length=50)
+    subject = models.CharField(max_length=50)
+    message = models.TextField(max_length=500)
+
+    is_confirmed = models.BooleanField(default=False)
+    date_created = models.DateTimeField(auto_now_add=True)
+    date_updated = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        db_table = 'main_reservations'
+        ordering = ('-date_created',)
 

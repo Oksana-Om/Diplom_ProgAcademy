@@ -38,6 +38,13 @@
 
 <! -- ===== Main==== -- >
     <main class="main">
+        {% if messages %}
+            <ul>
+                {% for item in messages %}
+                    <li class="{{ item.tags }}">"item"</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
         {% block content %}
         {% endblock %}
     </main>

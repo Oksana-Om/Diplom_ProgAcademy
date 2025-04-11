@@ -1,0 +1,59 @@
+
+<section id="contact" class="contact section">
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row gy-4">
+            <div class="col-lg-4">
+                <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
+                    <h5>Якщо Ви бажаєте більше дізнатися про навчання в нашій школі - заповніть форму і ми з Вами обов'язково зв'яжемося </h5>
+                </div><!-- End Info Item -->
+            </div>
+            <div class="col-lg-8">
+                <form action="{% url 'home' %}" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
+                    {% csrf_token %}
+                    {{ reservation.as_p }}
+                    <div class="col-md-12 text-center">
+                        <div class="loading">Loading</div>
+                        <div class="error-message"></div>
+                        <div class="sent-message">Your message has been sent. Thank you!</div>
+
+                        <button type="submit">Send Message</button>
+                    </div>
+                </form>
+            </div><!-- End Contact Form -->
+
+        </div>
+
+    </div>
+
+</section><!-- /Contact Section -->
+
+{#==========================================#}
+{#              <div class="row gy-4">#}
+{##}
+{#                <div class="col-md-6">#}
+{#                  <input type="text" name="name" class="form-control" placeholder="Your Name" required="">#}
+{#    <!-- Contact Section -->#}
+{#                </div>#}
+{##}
+{#                <div class="col-md-6 ">#}
+{#                  <input type="email" class="form-control" name="email" placeholder="Your Email" required="">#}
+{#                </div>#}
+{##}
+{#                <div class="col-md-6">#}
+{#                    #12#}
+{#                  <input type="text" class="form-control" name="phone" placeholder="Your Phone" required="">#}
+{#                </div>#}
+{#                <div class="col-md-6 ">#}
+{#                  <input type="email" class="form-control" name="email" placeholder="Your Email" required="">#}
+{#                </div>#}
+{##}
+{#                <div class="col-md-12">#}
+{#                  <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>#}
+{#                </div>#}
+{##}
+
+
+
+{#              </div>#}
+
+
