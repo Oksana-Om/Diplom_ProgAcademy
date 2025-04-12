@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Course, Teacher, Quantitative_indicator, Reason, Company, Contact, Reservations
 from .forms import ReservationForm
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib import messages
 
 
@@ -19,8 +19,9 @@ def index(request):
 
     if request.method == 'POST' and reservation.is_valid():
         reservation.save()
-        messages.success(request, 'Your reservation has been saved. Wait for a call')
+        messages.success(request, 'Ваше повідомлення надіслане. Ми Вам зателефонуємо')
         return redirect('home')
+
 
 
 
@@ -38,4 +39,4 @@ def index(request):
 
     return render(request, 'index.html', context=context)
 
-    #return render(request, 'index.html')
+    # return render(request, 'index.html')

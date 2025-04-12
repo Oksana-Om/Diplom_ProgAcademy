@@ -1,6 +1,6 @@
 from django.db import models
 from ckeditor.fields import RichTextField
-
+from django.core.validators import RegexValidator
 
 class Course(models.Model):
 
@@ -56,14 +56,6 @@ class Reason(models.Model):
     class Meta:
         db_table = 'reasons'
 
-# class Feature(models.Model):
-#     name = models.CharField(max_length=150)
-#     sign_name = models.CharField(max_length=50)
-#     is_visible = models.BooleanField(default=True)
-#     sort = models.IntegerField(default=0)
-#     class Meta:
-#         db_table = 'features'
-
 class Company(models.Model):
     name = models.CharField(max_length=50)
     photo = models.ImageField(upload_to='companies/')
@@ -76,13 +68,15 @@ class Company(models.Model):
 
 class Contact(models.Model):
     address = RichTextField()
-    reservation = RichTextField()
+    for_reservation = RichTextField()
     opening_hours = RichTextField()
 
 class Reservations(models.Model):
+    phone_regex = RegexValidator(regex=r'^\+?(38)?\d{10}$',)
+
     name = models.CharField(max_length=50)
     email = models.EmailField()
-    phone = models.CharField(max_length=50)
+    phone = models.CharField(max_length=50, validators=[phone_regex])
     subject = models.CharField(max_length=50)
     message = models.TextField(max_length=500)
 

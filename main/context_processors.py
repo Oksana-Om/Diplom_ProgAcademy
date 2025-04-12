@@ -9,7 +9,7 @@ def footer (request):
     res = Contact.objects.first()
     return {
         'address': res.address,
-        'reservation': res.reservation,
+        'for_reservation': res.for_reservation,
         'opening_hours': res.opening_hours,
 
 
