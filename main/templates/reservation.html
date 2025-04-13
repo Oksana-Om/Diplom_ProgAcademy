@@ -1,4 +1,3 @@
-
 <section id="contact" class="contact section">
     <div class="container" data-aos="fade-up" data-aos-delay="100">
         <div class="row gy-4">
@@ -10,9 +9,7 @@
             <div class="col-lg-8">
                 <form action="{% url 'home' %}" method="post"  data-aos="fade-up" data-aos-delay="200">
                     {% csrf_token %}
-{#                    {{ reservation.as_p }}#}
                     <div class="row gy-4">
-
                         {% for form_field in reservation %}
                             {% if form_field.name != 'message' %}
                                 <div class="col-md-6">
@@ -25,60 +22,11 @@
                     <div class="form-group mt-3">
                         {{ reservation.message }}
                     <div class="validate"></div>
-{#                </div>#}
-
-{#                =========#}
-{#                        {% for form_field in reservation %}#}
-{#                            <div class="col-md-6">#}
-{#                                {{ form_field }}#}
-{#                                <div class="validate">{{ field.errors }}</div>#}
-{#                            </div>#}
-{##}
-{##}
-{#                        {% endfor %}#}
-{#                ===========#}
-{#                        <div class="col-md-6">#}
-{#                            {{ reservation.name }}#}
-{#                        </div>#}
-{##}
-{#                        <div class="col-md-6 ">#}
-{#                            {{ reservation.email }}#}
-{#                        </div>#}
-{##}
-{#                        <div class="col-md-6">#}
-{#                            {{ reservation.phone }}#}
-{#                        </div>#}
-{##}
-{#                        <div class="col-md-6 ">#}
-{#                            {{ reservation.subject }}#}
-{#                        </div>#}
-{#=========#}
-{#                        <div class="col-md-12">#}
-{#                            {{ reservation.message }}#}
-{#                        </div>#}
-{#                    </div>#}
 
                     <button type="submit">Надіслати заявку</button>
                 </form>
-{#якщо прибрати class="php-email-form" , тот зависання припиняєтьcя#}
-{#                <form action="{% url 'home' %}" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">#}
-{#                    {% csrf_token %}#}
-{#                    {{ reservation.as_p }}#}
-{#                    <div class="col-md-12 text-center">#}
-{#                        <div class="loading">Loading</div>#}
-{#                        <div class="error-message"></div>#}
-{#                        <div class="sent-message">Your message has been sent. Thank you!</div>#}
-{##}
-{#                        <button type="submit">Send Message</button>#}
-{#                    </div>#}
-{#                </form>#}
-            </div><!-- End Contact Form -->
-
-
-
+            </div>
         </div>
-
     </div>
-
-</section><!-- /Contact Section -->
+</section>
 

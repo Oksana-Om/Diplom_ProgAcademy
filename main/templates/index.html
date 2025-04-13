@@ -23,8 +23,11 @@
     <!-- Trainers Index Section -->
     {% include 'trainers_index.html' %}
 
-     <!-- Contact Section -->
-    {% include 'reservation.html' %}
+    {% if user.is_authenticated %}
 
+        <!-- Contact Section -->
+        {% include 'reservation.html' %}
+
+    {% endif %}
 
 {% endblock %}

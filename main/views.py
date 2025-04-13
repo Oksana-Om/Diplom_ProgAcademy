@@ -8,7 +8,6 @@ from django.contrib import messages
 
 
 def index(request):
-    # categories = Category.objects.filter(is_visible=True)
     teachers = Teacher.objects.filter(is_visible=True)
     quantitative_indicators = Quantitative_indicator.objects.filter(is_visible=True)
     reasons = Reason.objects.filter(is_visible=True)
@@ -26,7 +25,6 @@ def index(request):
 
 
     context = {
-        # 'categories': categories,
         'teachers': teachers,
         'quantitative_indicators': quantitative_indicators,
         'reasons': reasons,

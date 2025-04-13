@@ -44,12 +44,5 @@ class ReasonAdmin(admin.ModelAdmin):
     list_display_links = ('id',)
     list_editable = ('name', 'desc', 'is_visible', 'sort')
 
-# class ContactAdmin(admin.ModelAdmin):
-#     list_display = ('id', 'address', 'reservation', 'opening_hours'),
-#     list_display_links = ('id')
-#     list_editable = ('address', 'reservation', 'opening_hours').+
-
-
-
 admin.site.register(Contact)
 admin.site.register(Reservations)

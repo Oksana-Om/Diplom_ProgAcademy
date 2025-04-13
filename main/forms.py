@@ -6,7 +6,6 @@ class ReservationForm(forms.ModelForm):
         user_name = self.data['name'].strip()
         return user_name.upper()
 
-
     class Meta:
         model = Reservations
         fields = ('name', 'email', 'phone', 'subject', 'message')
@@ -24,7 +23,6 @@ class ReservationForm(forms.ModelForm):
             'phone': forms.TextInput(attrs={'class': 'form-control',
                                             'id': 'phone',
                                             'placeholder': '+38xxxxxxxxxx'}),
-
             'subject': forms.TextInput(attrs={'class': 'form-control',
                                               'name': 'subject',
                                               'placeholder': 'Напрямок',}),

@@ -42,7 +42,9 @@ INSTALLED_APPS = [
     'ckeditor',
 
     'main.apps.MainConfig',
-    ]
+    'manager.apps.ManagerConfig',
+    'account.apps.AccountConfig'
+]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -137,6 +139,11 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [
      BASE_DIR / "static",
  ]
+
+LOGIN_URL = 'account/login'
+
+
+
 
 MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR / 'media'
