@@ -22,6 +22,7 @@ from django.conf.urls.static import static
 from Diplom_project_Om import settings
 from account import views as account_views
 from django.contrib.auth import views as auth_views
+# from contact_form import views as contact_views
 
 
 
@@ -33,6 +34,7 @@ urlpatterns = [
     path(settings.LOGIN_URL, account_views.UserLoginView.as_view(), name='login'),
     path('account/register/', account_views.UserRegistrationView.as_view(), name='register'),
     path('account/logout/', account_views.user_logout, name='logout'),
+    # path('contact_form/', contact_views.ReservationForm, name='contact_form'),
 ]
 
 if settings.DEBUG:

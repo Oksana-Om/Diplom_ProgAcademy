@@ -9,7 +9,8 @@
 
         {% include 'includes/nav.html' %}
 
-        <a class="btn-getstarted" href={% if user.is_authentificated %}{% else %}{% url 'login' %}{% endif %}>Написати менеджеру</a>
+        <a class="btn-getstarted" href={% if user.is_authenticated %}#footer{% else %}{% url 'login' %}{% endif %}>Написати менеджеру</a>
 
+        <a class="btn-getstarted" href={% if user.is_authenticated %}{% else %}{% url 'register' %}{% endif %}>Зареєструватися</a>
     </div>
 </header>
