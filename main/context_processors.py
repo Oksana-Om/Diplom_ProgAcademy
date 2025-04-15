@@ -2,7 +2,7 @@ from .models import Contact
 
 def app_title(request):
     return {
-        'title': 'IT school<span>.</span>'
+        'title': 'IT school<span></span>'
     }
 
 def footer (request):

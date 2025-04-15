@@ -85,6 +85,6 @@ class Reservations(models.Model):
     date_updated = models.DateTimeField(auto_now=True)
 
     class Meta:
-        db_table = 'main_reservations'
+        db_table = 'reservations'
         ordering = ('-date_created',)
 

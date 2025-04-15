@@ -22,9 +22,6 @@ from django.conf.urls.static import static
 from Diplom_project_Om import settings
 from account import views as account_views
 from django.contrib.auth import views as auth_views
-# from contact_form import views as contact_views
-
-
 
 urlpatterns = [
     path('admin/', admin.site.urls),
