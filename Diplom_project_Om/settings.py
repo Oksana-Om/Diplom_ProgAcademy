@@ -116,7 +116,7 @@ else:
         'DB_PASSWORD': os.environ.get('DB_PASSWORD'),
     }
     DATABASE_URL = os.environ.get('DATABASE_URL')
-    db_config = dj_database_url.config(default=DATABASE_URL, conn_max_age=600, conn_health_check=True)
+    db_config = dj_database_url.config(default=DATABASE_URL, conn_max_age=600, conn_health_checks=True)
     DATABASES['default'].update(db_config)
 
 
