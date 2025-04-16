@@ -8,9 +8,9 @@ def app_title(request):
 def footer (request):
     res = Contact.objects.first()
     return {
-        'address': res.address,
+        'address': res.address if res else '',
         'for_reservation': res.for_reservation if res else '',
-        'opening_hours': res.opening_hours,
+        'opening_hours': res.opening_hours if res else '',
 
 
     }
