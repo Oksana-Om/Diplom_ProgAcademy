@@ -5,8 +5,16 @@
             <h1 class="sitename">{{ title|safe }}</h1>
         </a>
         {% include 'includes/nav.html' %}
-        <a class="btn-getstarted" href={% if user.is_authenticated %}#footer{% else %}{% url 'login' %}{% endif %}>Написати менеджеру</a>
-        <a class="btn-getstarted" href={% if user.is_authenticated %}{% else %}{% url 'register' %}{% endif %}>Зареєструватися</a>
-        <a class="btn-getstarted" href={% if user.is_authenticated %}{% url 'logout' %}{% endif %}>Вийти</a>
+
+        {% if request.resolver_match.url_name != 'login' and request.resolver_match.url_name != 'register' %}
+            <a class="btn-getstarted" href={% if user.is_authenticated %}#footer{% else %}{% url 'login' %}{% endif %}>Написати менеджеру</a>
+        {% endif %}
+        {% if user.is_authenticated %}
+            <a class="btn-getstarted" href={% if user.is_authenticated %}{% url 'logout' %}{% endif %}>Вийти</a>
+        {% endif %}
+        {% if request.resolver_match.url_name == 'login' %}
+            <a class="btn-getstarted" href={% if user.is_authenticated %}{% else %}{% url 'register' %}{% endif %}>Зареєструватися</a>
+        {% endif %}
+
     </div>
 </header>
