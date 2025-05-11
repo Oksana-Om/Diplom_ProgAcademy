@@ -1,0 +1,49 @@
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Повідомлення</title>
+    <style>
+        table { width: 100%; border-collapse: collapse; }
+        th, td { border: 1px solid #ccc; padding: 8px; }
+        th { background-color: #f5f5f5; }
+    </style>
+</head>
+<body>
+    <h1>Список повідомлень</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Ім’я</th>
+                <th>Email</th>
+                <th>Телефон</th>
+                <th>Тема</th>
+                <th>Повідомлення</th>
+                <th>Дата</th>
+                <th>Статус</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for r in reservations %}
+            <tr>
+                <td>{{ r.name }}</td>
+                <td>{{ r.email }}</td>
+                <td>{{ r.phone }}</td>
+                <td>{{ r.subject }}</td>
+                <td>{{ r.message }}</td>
+                <td>{{ r.date_created }}</td>
+                <td>
+                    {% if not r.is_confirmed %}
+                        <form method="post" action="{% url 'confirm_reservation' r.id %}">
+                            {% csrf_token %}
+                            <button type="submit">Обробити</button>
+                        </form>
+                    {% else %}
+                        <span>Оброблено</span>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

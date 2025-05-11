@@ -21,17 +21,19 @@ from manager import views as manager_views
 from django.conf.urls.static import static
 from Diplom_project_Om import settings
 from account import views as account_views
+from manager.views import reservations_list, confirm_reservation
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', main_views.index, name='home'),
-    path('manager/', manager_views.index, name='manager'),
-
+    # path('manager/', manager_views.index, name='manager'),
+    path('manager/', manager_views.reservations_list, name='manager'),
     path(settings.LOGIN_URL, account_views.UserLoginView.as_view(), name='login'),
     path('account/register/', account_views.UserRegistrationView.as_view(), name='register'),
     path('account/logout/', account_views.user_logout, name='logout'),
-    # path('contact_form/', contact_views.ReservationForm, name='contact_form'),
+    path('manager/confirm/<int:reservation_id>/', manager_views.confirm_reservation, name='confirm_reservation'),
+
 ]
 
 if settings.DEBUG:

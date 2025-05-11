@@ -1,13 +1,14 @@
-from django.shortcuts import render
-from django.http import HttpResponse
-from django.contrib.auth.decorators import login_required, user_passes_test
+from django.shortcuts import render, redirect, get_object_or_404
+from django.views.decorators.http import require_POST
+from main.models import Reservations
 
+def reservations_list(request):
+    reservations = Reservations.objects.all()
+    return render(request, 'manager_page.html', {'reservations': reservations})
 
-def is_manager(user):
-    return user.groups.filter(name='manager').exists()
-@login_required(login_url='login')
-@user_passes_test(is_manager)
-
-# Create your views here.
-def index(request):
-    return HttpResponse("Manager Page")
+@require_POST
+def confirm_reservation(request, reservation_id):
+    reservation = get_object_or_404(Reservations, id=reservation_id)
+    reservation.is_confirmed = True
+    reservation.save()
+    return redirect('manager')
